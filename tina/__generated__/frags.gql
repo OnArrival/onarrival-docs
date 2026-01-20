@@ -1,0 +1,8 @@
+fragment DocsParts on Docs {
+  __typename
+  title
+  description
+  category
+  order
+  body
+}
