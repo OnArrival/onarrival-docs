@@ -84,6 +84,12 @@ export type Query = {
   document: DocumentNode;
   docs: Docs;
   docsConnection: DocsConnection;
+  homepage: Homepage;
+  homepageConnection: HomepageConnection;
+  settings: Settings;
+  settingsConnection: SettingsConnection;
+  navigation: Navigation;
+  navigationConnection: NavigationConnection;
 };
 
 
@@ -122,8 +128,56 @@ export type QueryDocsConnectionArgs = {
   filter?: InputMaybe<DocsFilter>;
 };
 
+
+export type QueryHomepageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryHomepageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<HomepageFilter>;
+};
+
+
+export type QuerySettingsArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySettingsConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<SettingsFilter>;
+};
+
+
+export type QueryNavigationArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryNavigationConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<NavigationFilter>;
+};
+
 export type DocumentFilter = {
   docs?: InputMaybe<DocsFilter>;
+  homepage?: InputMaybe<HomepageFilter>;
+  settings?: InputMaybe<SettingsFilter>;
+  navigation?: InputMaybe<NavigationFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -163,7 +217,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Docs | Folder;
+export type DocumentNode = Docs | Homepage | Settings | Navigation | Folder;
 
 export type Docs = Node & Document & {
   __typename?: 'Docs';
@@ -237,6 +291,287 @@ export type DocsConnection = Connection & {
   edges?: Maybe<Array<Maybe<DocsConnectionEdges>>>;
 };
 
+export type HomepageHero = {
+  __typename?: 'HomepageHero';
+  badge?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  titleHighlight?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  primaryCta?: Maybe<Scalars['String']['output']>;
+  primaryCtaLink?: Maybe<Scalars['String']['output']>;
+  secondaryCta?: Maybe<Scalars['String']['output']>;
+  secondaryCtaLink?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomepageCodePreviewFeatures = {
+  __typename?: 'HomepageCodePreviewFeatures';
+  label?: Maybe<Scalars['String']['output']>;
+  desc?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomepageCodePreview = {
+  __typename?: 'HomepageCodePreview';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  code?: Maybe<Scalars['String']['output']>;
+  features?: Maybe<Array<Maybe<HomepageCodePreviewFeatures>>>;
+};
+
+export type HomepageQuickstartSteps = {
+  __typename?: 'HomepageQuickstartSteps';
+  step?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  desc?: Maybe<Scalars['String']['output']>;
+  code?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomepageQuickstart = {
+  __typename?: 'HomepageQuickstart';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  steps?: Maybe<Array<Maybe<HomepageQuickstartSteps>>>;
+};
+
+export type HomepageFeaturesItems = {
+  __typename?: 'HomepageFeaturesItems';
+  icon?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  color?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomepageFeatures = {
+  __typename?: 'HomepageFeatures';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<HomepageFeaturesItems>>>;
+};
+
+export type HomepageCta = {
+  __typename?: 'HomepageCta';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  primaryCta?: Maybe<Scalars['String']['output']>;
+  primaryCtaLink?: Maybe<Scalars['String']['output']>;
+  secondaryCta?: Maybe<Scalars['String']['output']>;
+  secondaryCtaLink?: Maybe<Scalars['String']['output']>;
+};
+
+export type Homepage = Node & Document & {
+  __typename?: 'Homepage';
+  hero?: Maybe<HomepageHero>;
+  codePreview?: Maybe<HomepageCodePreview>;
+  quickstart?: Maybe<HomepageQuickstart>;
+  features?: Maybe<HomepageFeatures>;
+  cta?: Maybe<HomepageCta>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type HomepageHeroFilter = {
+  badge?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  titleHighlight?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  primaryCta?: InputMaybe<StringFilter>;
+  primaryCtaLink?: InputMaybe<StringFilter>;
+  secondaryCta?: InputMaybe<StringFilter>;
+  secondaryCtaLink?: InputMaybe<StringFilter>;
+};
+
+export type HomepageCodePreviewFeaturesFilter = {
+  label?: InputMaybe<StringFilter>;
+  desc?: InputMaybe<StringFilter>;
+};
+
+export type HomepageCodePreviewFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  code?: InputMaybe<StringFilter>;
+  features?: InputMaybe<HomepageCodePreviewFeaturesFilter>;
+};
+
+export type HomepageQuickstartStepsFilter = {
+  step?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  desc?: InputMaybe<StringFilter>;
+  code?: InputMaybe<StringFilter>;
+};
+
+export type HomepageQuickstartFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  steps?: InputMaybe<HomepageQuickstartStepsFilter>;
+};
+
+export type HomepageFeaturesItemsFilter = {
+  icon?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  color?: InputMaybe<StringFilter>;
+};
+
+export type HomepageFeaturesFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  items?: InputMaybe<HomepageFeaturesItemsFilter>;
+};
+
+export type HomepageCtaFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  primaryCta?: InputMaybe<StringFilter>;
+  primaryCtaLink?: InputMaybe<StringFilter>;
+  secondaryCta?: InputMaybe<StringFilter>;
+  secondaryCtaLink?: InputMaybe<StringFilter>;
+};
+
+export type HomepageFilter = {
+  hero?: InputMaybe<HomepageHeroFilter>;
+  codePreview?: InputMaybe<HomepageCodePreviewFilter>;
+  quickstart?: InputMaybe<HomepageQuickstartFilter>;
+  features?: InputMaybe<HomepageFeaturesFilter>;
+  cta?: InputMaybe<HomepageCtaFilter>;
+};
+
+export type HomepageConnectionEdges = {
+  __typename?: 'HomepageConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Homepage>;
+};
+
+export type HomepageConnection = Connection & {
+  __typename?: 'HomepageConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<HomepageConnectionEdges>>>;
+};
+
+export type SettingsSite = {
+  __typename?: 'SettingsSite';
+  name?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  logo?: Maybe<Scalars['String']['output']>;
+};
+
+export type SettingsEnvironments = {
+  __typename?: 'SettingsEnvironments';
+  uatUrl?: Maybe<Scalars['String']['output']>;
+  prodUrl?: Maybe<Scalars['String']['output']>;
+};
+
+export type SettingsFooterLinks = {
+  __typename?: 'SettingsFooterLinks';
+  label?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+};
+
+export type SettingsFooter = {
+  __typename?: 'SettingsFooter';
+  copyright?: Maybe<Scalars['String']['output']>;
+  links?: Maybe<Array<Maybe<SettingsFooterLinks>>>;
+};
+
+export type Settings = Node & Document & {
+  __typename?: 'Settings';
+  site?: Maybe<SettingsSite>;
+  environments?: Maybe<SettingsEnvironments>;
+  footer?: Maybe<SettingsFooter>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type SettingsSiteFilter = {
+  name?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  logo?: InputMaybe<StringFilter>;
+};
+
+export type SettingsEnvironmentsFilter = {
+  uatUrl?: InputMaybe<StringFilter>;
+  prodUrl?: InputMaybe<StringFilter>;
+};
+
+export type SettingsFooterLinksFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type SettingsFooterFilter = {
+  copyright?: InputMaybe<StringFilter>;
+  links?: InputMaybe<SettingsFooterLinksFilter>;
+};
+
+export type SettingsFilter = {
+  site?: InputMaybe<SettingsSiteFilter>;
+  environments?: InputMaybe<SettingsEnvironmentsFilter>;
+  footer?: InputMaybe<SettingsFooterFilter>;
+};
+
+export type SettingsConnectionEdges = {
+  __typename?: 'SettingsConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Settings>;
+};
+
+export type SettingsConnection = Connection & {
+  __typename?: 'SettingsConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<SettingsConnectionEdges>>>;
+};
+
+export type NavigationSectionsItems = {
+  __typename?: 'NavigationSectionsItems';
+  title?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+};
+
+export type NavigationSections = {
+  __typename?: 'NavigationSections';
+  title?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<NavigationSectionsItems>>>;
+};
+
+export type Navigation = Node & Document & {
+  __typename?: 'Navigation';
+  sections?: Maybe<Array<Maybe<NavigationSections>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type NavigationSectionsItemsFilter = {
+  title?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type NavigationSectionsFilter = {
+  title?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
+  items?: InputMaybe<NavigationSectionsItemsFilter>;
+};
+
+export type NavigationFilter = {
+  sections?: InputMaybe<NavigationSectionsFilter>;
+};
+
+export type NavigationConnectionEdges = {
+  __typename?: 'NavigationConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Navigation>;
+};
+
+export type NavigationConnection = Connection & {
+  __typename?: 'NavigationConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<NavigationConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -246,6 +581,12 @@ export type Mutation = {
   createFolder: DocumentNode;
   updateDocs: Docs;
   createDocs: Docs;
+  updateHomepage: Homepage;
+  createHomepage: Homepage;
+  updateSettings: Settings;
+  createSettings: Settings;
+  updateNavigation: Navigation;
+  createNavigation: Navigation;
 };
 
 
@@ -293,13 +634,55 @@ export type MutationCreateDocsArgs = {
   params: DocsMutation;
 };
 
+
+export type MutationUpdateHomepageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: HomepageMutation;
+};
+
+
+export type MutationCreateHomepageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: HomepageMutation;
+};
+
+
+export type MutationUpdateSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SettingsMutation;
+};
+
+
+export type MutationCreateSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SettingsMutation;
+};
+
+
+export type MutationUpdateNavigationArgs = {
+  relativePath: Scalars['String']['input'];
+  params: NavigationMutation;
+};
+
+
+export type MutationCreateNavigationArgs = {
+  relativePath: Scalars['String']['input'];
+  params: NavigationMutation;
+};
+
 export type DocumentUpdateMutation = {
   docs?: InputMaybe<DocsMutation>;
+  homepage?: InputMaybe<HomepageMutation>;
+  settings?: InputMaybe<SettingsMutation>;
+  navigation?: InputMaybe<NavigationMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
   docs?: InputMaybe<DocsMutation>;
+  homepage?: InputMaybe<HomepageMutation>;
+  settings?: InputMaybe<SettingsMutation>;
+  navigation?: InputMaybe<NavigationMutation>;
 };
 
 export type DocsMutation = {
@@ -310,7 +693,121 @@ export type DocsMutation = {
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type HomepageHeroMutation = {
+  badge?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  titleHighlight?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  primaryCta?: InputMaybe<Scalars['String']['input']>;
+  primaryCtaLink?: InputMaybe<Scalars['String']['input']>;
+  secondaryCta?: InputMaybe<Scalars['String']['input']>;
+  secondaryCtaLink?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomepageCodePreviewFeaturesMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  desc?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomepageCodePreviewMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  features?: InputMaybe<Array<InputMaybe<HomepageCodePreviewFeaturesMutation>>>;
+};
+
+export type HomepageQuickstartStepsMutation = {
+  step?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  desc?: InputMaybe<Scalars['String']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomepageQuickstartMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  steps?: InputMaybe<Array<InputMaybe<HomepageQuickstartStepsMutation>>>;
+};
+
+export type HomepageFeaturesItemsMutation = {
+  icon?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  color?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomepageFeaturesMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<InputMaybe<HomepageFeaturesItemsMutation>>>;
+};
+
+export type HomepageCtaMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  primaryCta?: InputMaybe<Scalars['String']['input']>;
+  primaryCtaLink?: InputMaybe<Scalars['String']['input']>;
+  secondaryCta?: InputMaybe<Scalars['String']['input']>;
+  secondaryCtaLink?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomepageMutation = {
+  hero?: InputMaybe<HomepageHeroMutation>;
+  codePreview?: InputMaybe<HomepageCodePreviewMutation>;
+  quickstart?: InputMaybe<HomepageQuickstartMutation>;
+  features?: InputMaybe<HomepageFeaturesMutation>;
+  cta?: InputMaybe<HomepageCtaMutation>;
+};
+
+export type SettingsSiteMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  logo?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SettingsEnvironmentsMutation = {
+  uatUrl?: InputMaybe<Scalars['String']['input']>;
+  prodUrl?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SettingsFooterLinksMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SettingsFooterMutation = {
+  copyright?: InputMaybe<Scalars['String']['input']>;
+  links?: InputMaybe<Array<InputMaybe<SettingsFooterLinksMutation>>>;
+};
+
+export type SettingsMutation = {
+  site?: InputMaybe<SettingsSiteMutation>;
+  environments?: InputMaybe<SettingsEnvironmentsMutation>;
+  footer?: InputMaybe<SettingsFooterMutation>;
+};
+
+export type NavigationSectionsItemsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type NavigationSectionsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<InputMaybe<NavigationSectionsItemsMutation>>>;
+};
+
+export type NavigationMutation = {
+  sections?: InputMaybe<Array<InputMaybe<NavigationSectionsMutation>>>;
+};
+
 export type DocsPartsFragment = { __typename: 'Docs', title: string, description?: string | null, category?: string | null, order?: number | null, body?: any | null };
+
+export type HomepagePartsFragment = { __typename: 'Homepage', hero?: { __typename: 'HomepageHero', badge?: string | null, title?: string | null, titleHighlight?: string | null, description?: string | null, primaryCta?: string | null, primaryCtaLink?: string | null, secondaryCta?: string | null, secondaryCtaLink?: string | null } | null, codePreview?: { __typename: 'HomepageCodePreview', title?: string | null, description?: string | null, code?: string | null, features?: Array<{ __typename: 'HomepageCodePreviewFeatures', label?: string | null, desc?: string | null } | null> | null } | null, quickstart?: { __typename: 'HomepageQuickstart', title?: string | null, description?: string | null, steps?: Array<{ __typename: 'HomepageQuickstartSteps', step?: string | null, title?: string | null, desc?: string | null, code?: string | null } | null> | null } | null, features?: { __typename: 'HomepageFeatures', title?: string | null, description?: string | null, items?: Array<{ __typename: 'HomepageFeaturesItems', icon?: string | null, title?: string | null, description?: string | null, color?: string | null } | null> | null } | null, cta?: { __typename: 'HomepageCta', title?: string | null, description?: string | null, primaryCta?: string | null, primaryCtaLink?: string | null, secondaryCta?: string | null, secondaryCtaLink?: string | null } | null };
+
+export type SettingsPartsFragment = { __typename: 'Settings', site?: { __typename: 'SettingsSite', name?: string | null, description?: string | null, logo?: string | null } | null, environments?: { __typename: 'SettingsEnvironments', uatUrl?: string | null, prodUrl?: string | null } | null, footer?: { __typename: 'SettingsFooter', copyright?: string | null, links?: Array<{ __typename: 'SettingsFooterLinks', label?: string | null, href?: string | null } | null> | null } | null };
+
+export type NavigationPartsFragment = { __typename: 'Navigation', sections?: Array<{ __typename: 'NavigationSections', title?: string | null, icon?: string | null, items?: Array<{ __typename: 'NavigationSectionsItems', title?: string | null, href?: string | null } | null> | null } | null> | null };
 
 export type DocsQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -331,6 +828,63 @@ export type DocsConnectionQueryVariables = Exact<{
 
 export type DocsConnectionQuery = { __typename?: 'Query', docsConnection: { __typename?: 'DocsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DocsConnectionEdges', cursor: string, node?: { __typename: 'Docs', id: string, title: string, description?: string | null, category?: string | null, order?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
+export type HomepageQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type HomepageQuery = { __typename?: 'Query', homepage: { __typename: 'Homepage', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'HomepageHero', badge?: string | null, title?: string | null, titleHighlight?: string | null, description?: string | null, primaryCta?: string | null, primaryCtaLink?: string | null, secondaryCta?: string | null, secondaryCtaLink?: string | null } | null, codePreview?: { __typename: 'HomepageCodePreview', title?: string | null, description?: string | null, code?: string | null, features?: Array<{ __typename: 'HomepageCodePreviewFeatures', label?: string | null, desc?: string | null } | null> | null } | null, quickstart?: { __typename: 'HomepageQuickstart', title?: string | null, description?: string | null, steps?: Array<{ __typename: 'HomepageQuickstartSteps', step?: string | null, title?: string | null, desc?: string | null, code?: string | null } | null> | null } | null, features?: { __typename: 'HomepageFeatures', title?: string | null, description?: string | null, items?: Array<{ __typename: 'HomepageFeaturesItems', icon?: string | null, title?: string | null, description?: string | null, color?: string | null } | null> | null } | null, cta?: { __typename: 'HomepageCta', title?: string | null, description?: string | null, primaryCta?: string | null, primaryCtaLink?: string | null, secondaryCta?: string | null, secondaryCtaLink?: string | null } | null } };
+
+export type HomepageConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<HomepageFilter>;
+}>;
+
+
+export type HomepageConnectionQuery = { __typename?: 'Query', homepageConnection: { __typename?: 'HomepageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HomepageConnectionEdges', cursor: string, node?: { __typename: 'Homepage', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'HomepageHero', badge?: string | null, title?: string | null, titleHighlight?: string | null, description?: string | null, primaryCta?: string | null, primaryCtaLink?: string | null, secondaryCta?: string | null, secondaryCtaLink?: string | null } | null, codePreview?: { __typename: 'HomepageCodePreview', title?: string | null, description?: string | null, code?: string | null, features?: Array<{ __typename: 'HomepageCodePreviewFeatures', label?: string | null, desc?: string | null } | null> | null } | null, quickstart?: { __typename: 'HomepageQuickstart', title?: string | null, description?: string | null, steps?: Array<{ __typename: 'HomepageQuickstartSteps', step?: string | null, title?: string | null, desc?: string | null, code?: string | null } | null> | null } | null, features?: { __typename: 'HomepageFeatures', title?: string | null, description?: string | null, items?: Array<{ __typename: 'HomepageFeaturesItems', icon?: string | null, title?: string | null, description?: string | null, color?: string | null } | null> | null } | null, cta?: { __typename: 'HomepageCta', title?: string | null, description?: string | null, primaryCta?: string | null, primaryCtaLink?: string | null, secondaryCta?: string | null, secondaryCtaLink?: string | null } | null } | null } | null> | null } };
+
+export type SettingsQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type SettingsQuery = { __typename?: 'Query', settings: { __typename: 'Settings', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, site?: { __typename: 'SettingsSite', name?: string | null, description?: string | null, logo?: string | null } | null, environments?: { __typename: 'SettingsEnvironments', uatUrl?: string | null, prodUrl?: string | null } | null, footer?: { __typename: 'SettingsFooter', copyright?: string | null, links?: Array<{ __typename: 'SettingsFooterLinks', label?: string | null, href?: string | null } | null> | null } | null } };
+
+export type SettingsConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<SettingsFilter>;
+}>;
+
+
+export type SettingsConnectionQuery = { __typename?: 'Query', settingsConnection: { __typename?: 'SettingsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SettingsConnectionEdges', cursor: string, node?: { __typename: 'Settings', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, site?: { __typename: 'SettingsSite', name?: string | null, description?: string | null, logo?: string | null } | null, environments?: { __typename: 'SettingsEnvironments', uatUrl?: string | null, prodUrl?: string | null } | null, footer?: { __typename: 'SettingsFooter', copyright?: string | null, links?: Array<{ __typename: 'SettingsFooterLinks', label?: string | null, href?: string | null } | null> | null } | null } | null } | null> | null } };
+
+export type NavigationQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type NavigationQuery = { __typename?: 'Query', navigation: { __typename: 'Navigation', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sections?: Array<{ __typename: 'NavigationSections', title?: string | null, icon?: string | null, items?: Array<{ __typename: 'NavigationSectionsItems', title?: string | null, href?: string | null } | null> | null } | null> | null } };
+
+export type NavigationConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<NavigationFilter>;
+}>;
+
+
+export type NavigationConnectionQuery = { __typename?: 'Query', navigationConnection: { __typename?: 'NavigationConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'NavigationConnectionEdges', cursor: string, node?: { __typename: 'Navigation', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sections?: Array<{ __typename: 'NavigationSections', title?: string | null, icon?: string | null, items?: Array<{ __typename: 'NavigationSectionsItems', title?: string | null, href?: string | null } | null> | null } | null> | null } | null } | null> | null } };
+
 export const DocsPartsFragmentDoc = gql`
     fragment DocsParts on Docs {
   __typename
@@ -339,6 +893,106 @@ export const DocsPartsFragmentDoc = gql`
   category
   order
   body
+}
+    `;
+export const HomepagePartsFragmentDoc = gql`
+    fragment HomepageParts on Homepage {
+  __typename
+  hero {
+    __typename
+    badge
+    title
+    titleHighlight
+    description
+    primaryCta
+    primaryCtaLink
+    secondaryCta
+    secondaryCtaLink
+  }
+  codePreview {
+    __typename
+    title
+    description
+    code
+    features {
+      __typename
+      label
+      desc
+    }
+  }
+  quickstart {
+    __typename
+    title
+    description
+    steps {
+      __typename
+      step
+      title
+      desc
+      code
+    }
+  }
+  features {
+    __typename
+    title
+    description
+    items {
+      __typename
+      icon
+      title
+      description
+      color
+    }
+  }
+  cta {
+    __typename
+    title
+    description
+    primaryCta
+    primaryCtaLink
+    secondaryCta
+    secondaryCtaLink
+  }
+}
+    `;
+export const SettingsPartsFragmentDoc = gql`
+    fragment SettingsParts on Settings {
+  __typename
+  site {
+    __typename
+    name
+    description
+    logo
+  }
+  environments {
+    __typename
+    uatUrl
+    prodUrl
+  }
+  footer {
+    __typename
+    copyright
+    links {
+      __typename
+      label
+      href
+    }
+  }
+}
+    `;
+export const NavigationPartsFragmentDoc = gql`
+    fragment NavigationParts on Navigation {
+  __typename
+  sections {
+    __typename
+    title
+    icon
+    items {
+      __typename
+      title
+      href
+    }
+  }
 }
     `;
 export const DocsDocument = gql`
@@ -398,6 +1052,177 @@ export const DocsConnectionDocument = gql`
   }
 }
     ${DocsPartsFragmentDoc}`;
+export const HomepageDocument = gql`
+    query homepage($relativePath: String!) {
+  homepage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...HomepageParts
+  }
+}
+    ${HomepagePartsFragmentDoc}`;
+export const HomepageConnectionDocument = gql`
+    query homepageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: HomepageFilter) {
+  homepageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...HomepageParts
+      }
+    }
+  }
+}
+    ${HomepagePartsFragmentDoc}`;
+export const SettingsDocument = gql`
+    query settings($relativePath: String!) {
+  settings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SettingsParts
+  }
+}
+    ${SettingsPartsFragmentDoc}`;
+export const SettingsConnectionDocument = gql`
+    query settingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SettingsFilter) {
+  settingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SettingsParts
+      }
+    }
+  }
+}
+    ${SettingsPartsFragmentDoc}`;
+export const NavigationDocument = gql`
+    query navigation($relativePath: String!) {
+  navigation(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...NavigationParts
+  }
+}
+    ${NavigationPartsFragmentDoc}`;
+export const NavigationConnectionDocument = gql`
+    query navigationConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: NavigationFilter) {
+  navigationConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...NavigationParts
+      }
+    }
+  }
+}
+    ${NavigationPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -406,6 +1231,24 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     docsConnection(variables?: DocsConnectionQueryVariables, options?: C): Promise<{data: DocsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: DocsConnectionQueryVariables, query: string}> {
         return requester<{data: DocsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: DocsConnectionQueryVariables, query: string}, DocsConnectionQueryVariables>(DocsConnectionDocument, variables, options);
+      },
+    homepage(variables: HomepageQueryVariables, options?: C): Promise<{data: HomepageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomepageQueryVariables, query: string}> {
+        return requester<{data: HomepageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomepageQueryVariables, query: string}, HomepageQueryVariables>(HomepageDocument, variables, options);
+      },
+    homepageConnection(variables?: HomepageConnectionQueryVariables, options?: C): Promise<{data: HomepageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomepageConnectionQueryVariables, query: string}> {
+        return requester<{data: HomepageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomepageConnectionQueryVariables, query: string}, HomepageConnectionQueryVariables>(HomepageConnectionDocument, variables, options);
+      },
+    settings(variables: SettingsQueryVariables, options?: C): Promise<{data: SettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SettingsQueryVariables, query: string}> {
+        return requester<{data: SettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SettingsQueryVariables, query: string}, SettingsQueryVariables>(SettingsDocument, variables, options);
+      },
+    settingsConnection(variables?: SettingsConnectionQueryVariables, options?: C): Promise<{data: SettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SettingsConnectionQueryVariables, query: string}> {
+        return requester<{data: SettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SettingsConnectionQueryVariables, query: string}, SettingsConnectionQueryVariables>(SettingsConnectionDocument, variables, options);
+      },
+    navigation(variables: NavigationQueryVariables, options?: C): Promise<{data: NavigationQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: NavigationQueryVariables, query: string}> {
+        return requester<{data: NavigationQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: NavigationQueryVariables, query: string}, NavigationQueryVariables>(NavigationDocument, variables, options);
+      },
+    navigationConnection(variables?: NavigationConnectionQueryVariables, options?: C): Promise<{data: NavigationConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: NavigationConnectionQueryVariables, query: string}> {
+        return requester<{data: NavigationConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: NavigationConnectionQueryVariables, query: string}, NavigationConnectionQueryVariables>(NavigationConnectionDocument, variables, options);
       }
     };
   }

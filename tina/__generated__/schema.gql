@@ -56,10 +56,19 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   docs(relativePath: String): Docs!
   docsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: DocsFilter): DocsConnection!
+  homepage(relativePath: String): Homepage!
+  homepageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomepageFilter): HomepageConnection!
+  settings(relativePath: String): Settings!
+  settingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SettingsFilter): SettingsConnection!
+  navigation(relativePath: String): Navigation!
+  navigationConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: NavigationFilter): NavigationConnection!
 }
 
 input DocumentFilter {
   docs: DocsFilter
+  homepage: HomepageFilter
+  settings: SettingsFilter
+  navigation: NavigationFilter
 }
 
 type DocumentConnectionEdges {
@@ -85,7 +94,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Docs | Folder
+union DocumentNode = Docs | Homepage | Settings | Navigation | Folder
 
 type Docs implements Node & Document {
   title: String!
@@ -156,6 +165,264 @@ type DocsConnection implements Connection {
   edges: [DocsConnectionEdges]
 }
 
+type HomepageHero {
+  badge: String
+  title: String
+  titleHighlight: String
+  description: String
+  primaryCta: String
+  primaryCtaLink: String
+  secondaryCta: String
+  secondaryCtaLink: String
+}
+
+type HomepageCodePreviewFeatures {
+  label: String
+  desc: String
+}
+
+type HomepageCodePreview {
+  title: String
+  description: String
+  code: String
+  features: [HomepageCodePreviewFeatures]
+}
+
+type HomepageQuickstartSteps {
+  step: String
+  title: String
+  desc: String
+  code: String
+}
+
+type HomepageQuickstart {
+  title: String
+  description: String
+  steps: [HomepageQuickstartSteps]
+}
+
+type HomepageFeaturesItems {
+  icon: String
+  title: String
+  description: String
+  color: String
+}
+
+type HomepageFeatures {
+  title: String
+  description: String
+  items: [HomepageFeaturesItems]
+}
+
+type HomepageCta {
+  title: String
+  description: String
+  primaryCta: String
+  primaryCtaLink: String
+  secondaryCta: String
+  secondaryCtaLink: String
+}
+
+type Homepage implements Node & Document {
+  hero: HomepageHero
+  codePreview: HomepageCodePreview
+  quickstart: HomepageQuickstart
+  features: HomepageFeatures
+  cta: HomepageCta
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input HomepageHeroFilter {
+  badge: StringFilter
+  title: StringFilter
+  titleHighlight: StringFilter
+  description: StringFilter
+  primaryCta: StringFilter
+  primaryCtaLink: StringFilter
+  secondaryCta: StringFilter
+  secondaryCtaLink: StringFilter
+}
+
+input HomepageCodePreviewFeaturesFilter {
+  label: StringFilter
+  desc: StringFilter
+}
+
+input HomepageCodePreviewFilter {
+  title: StringFilter
+  description: StringFilter
+  code: StringFilter
+  features: HomepageCodePreviewFeaturesFilter
+}
+
+input HomepageQuickstartStepsFilter {
+  step: StringFilter
+  title: StringFilter
+  desc: StringFilter
+  code: StringFilter
+}
+
+input HomepageQuickstartFilter {
+  title: StringFilter
+  description: StringFilter
+  steps: HomepageQuickstartStepsFilter
+}
+
+input HomepageFeaturesItemsFilter {
+  icon: StringFilter
+  title: StringFilter
+  description: StringFilter
+  color: StringFilter
+}
+
+input HomepageFeaturesFilter {
+  title: StringFilter
+  description: StringFilter
+  items: HomepageFeaturesItemsFilter
+}
+
+input HomepageCtaFilter {
+  title: StringFilter
+  description: StringFilter
+  primaryCta: StringFilter
+  primaryCtaLink: StringFilter
+  secondaryCta: StringFilter
+  secondaryCtaLink: StringFilter
+}
+
+input HomepageFilter {
+  hero: HomepageHeroFilter
+  codePreview: HomepageCodePreviewFilter
+  quickstart: HomepageQuickstartFilter
+  features: HomepageFeaturesFilter
+  cta: HomepageCtaFilter
+}
+
+type HomepageConnectionEdges {
+  cursor: String!
+  node: Homepage
+}
+
+type HomepageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [HomepageConnectionEdges]
+}
+
+type SettingsSite {
+  name: String
+  description: String
+  logo: String
+}
+
+type SettingsEnvironments {
+  uatUrl: String
+  prodUrl: String
+}
+
+type SettingsFooterLinks {
+  label: String
+  href: String
+}
+
+type SettingsFooter {
+  copyright: String
+  links: [SettingsFooterLinks]
+}
+
+type Settings implements Node & Document {
+  site: SettingsSite
+  environments: SettingsEnvironments
+  footer: SettingsFooter
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input SettingsSiteFilter {
+  name: StringFilter
+  description: StringFilter
+  logo: StringFilter
+}
+
+input SettingsEnvironmentsFilter {
+  uatUrl: StringFilter
+  prodUrl: StringFilter
+}
+
+input SettingsFooterLinksFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input SettingsFooterFilter {
+  copyright: StringFilter
+  links: SettingsFooterLinksFilter
+}
+
+input SettingsFilter {
+  site: SettingsSiteFilter
+  environments: SettingsEnvironmentsFilter
+  footer: SettingsFooterFilter
+}
+
+type SettingsConnectionEdges {
+  cursor: String!
+  node: Settings
+}
+
+type SettingsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [SettingsConnectionEdges]
+}
+
+type NavigationSectionsItems {
+  title: String
+  href: String
+}
+
+type NavigationSections {
+  title: String
+  icon: String
+  items: [NavigationSectionsItems]
+}
+
+type Navigation implements Node & Document {
+  sections: [NavigationSections]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input NavigationSectionsItemsFilter {
+  title: StringFilter
+  href: StringFilter
+}
+
+input NavigationSectionsFilter {
+  title: StringFilter
+  icon: StringFilter
+  items: NavigationSectionsItemsFilter
+}
+
+input NavigationFilter {
+  sections: NavigationSectionsFilter
+}
+
+type NavigationConnectionEdges {
+  cursor: String!
+  node: Navigation
+}
+
+type NavigationConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [NavigationConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -164,15 +431,27 @@ type Mutation {
   createFolder(collection: String, relativePath: String!): DocumentNode!
   updateDocs(relativePath: String!, params: DocsMutation!): Docs!
   createDocs(relativePath: String!, params: DocsMutation!): Docs!
+  updateHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
+  createHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
+  updateSettings(relativePath: String!, params: SettingsMutation!): Settings!
+  createSettings(relativePath: String!, params: SettingsMutation!): Settings!
+  updateNavigation(relativePath: String!, params: NavigationMutation!): Navigation!
+  createNavigation(relativePath: String!, params: NavigationMutation!): Navigation!
 }
 
 input DocumentUpdateMutation {
   docs: DocsMutation
+  homepage: HomepageMutation
+  settings: SettingsMutation
+  navigation: NavigationMutation
   relativePath: String
 }
 
 input DocumentMutation {
   docs: DocsMutation
+  homepage: HomepageMutation
+  settings: SettingsMutation
+  navigation: NavigationMutation
 }
 
 input DocsMutation {
@@ -181,6 +460,114 @@ input DocsMutation {
   category: String
   order: Float
   body: JSON
+}
+
+input HomepageHeroMutation {
+  badge: String
+  title: String
+  titleHighlight: String
+  description: String
+  primaryCta: String
+  primaryCtaLink: String
+  secondaryCta: String
+  secondaryCtaLink: String
+}
+
+input HomepageCodePreviewFeaturesMutation {
+  label: String
+  desc: String
+}
+
+input HomepageCodePreviewMutation {
+  title: String
+  description: String
+  code: String
+  features: [HomepageCodePreviewFeaturesMutation]
+}
+
+input HomepageQuickstartStepsMutation {
+  step: String
+  title: String
+  desc: String
+  code: String
+}
+
+input HomepageQuickstartMutation {
+  title: String
+  description: String
+  steps: [HomepageQuickstartStepsMutation]
+}
+
+input HomepageFeaturesItemsMutation {
+  icon: String
+  title: String
+  description: String
+  color: String
+}
+
+input HomepageFeaturesMutation {
+  title: String
+  description: String
+  items: [HomepageFeaturesItemsMutation]
+}
+
+input HomepageCtaMutation {
+  title: String
+  description: String
+  primaryCta: String
+  primaryCtaLink: String
+  secondaryCta: String
+  secondaryCtaLink: String
+}
+
+input HomepageMutation {
+  hero: HomepageHeroMutation
+  codePreview: HomepageCodePreviewMutation
+  quickstart: HomepageQuickstartMutation
+  features: HomepageFeaturesMutation
+  cta: HomepageCtaMutation
+}
+
+input SettingsSiteMutation {
+  name: String
+  description: String
+  logo: String
+}
+
+input SettingsEnvironmentsMutation {
+  uatUrl: String
+  prodUrl: String
+}
+
+input SettingsFooterLinksMutation {
+  label: String
+  href: String
+}
+
+input SettingsFooterMutation {
+  copyright: String
+  links: [SettingsFooterLinksMutation]
+}
+
+input SettingsMutation {
+  site: SettingsSiteMutation
+  environments: SettingsEnvironmentsMutation
+  footer: SettingsFooterMutation
+}
+
+input NavigationSectionsItemsMutation {
+  title: String
+  href: String
+}
+
+input NavigationSectionsMutation {
+  title: String
+  icon: String
+  items: [NavigationSectionsItemsMutation]
+}
+
+input NavigationMutation {
+  sections: [NavigationSectionsMutation]
 }
 
 schema {

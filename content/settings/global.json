@@ -1,0 +1,19 @@
+{
+  "site": {
+    "name": "OnArrival",
+    "description": "Developer documentation for the OnArrival flight booking integration platform.",
+    "logo": "OA"
+  },
+  "environments": {
+    "uatUrl": "devflights.onarriv.io",
+    "prodUrl": "After UAT sign-off"
+  },
+  "footer": {
+    "copyright": "OnArrival",
+    "links": [
+      { "label": "Docs", "href": "/docs/introduction/overview" },
+      { "label": "API", "href": "/docs/integration/api-reference" },
+      { "label": "Support", "href": "/docs/support/faqs" }
+    ]
+  }
+}

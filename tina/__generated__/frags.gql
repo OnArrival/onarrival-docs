@@ -6,3 +6,100 @@ fragment DocsParts on Docs {
   order
   body
 }
+
+fragment HomepageParts on Homepage {
+  __typename
+  hero {
+    __typename
+    badge
+    title
+    titleHighlight
+    description
+    primaryCta
+    primaryCtaLink
+    secondaryCta
+    secondaryCtaLink
+  }
+  codePreview {
+    __typename
+    title
+    description
+    code
+    features {
+      __typename
+      label
+      desc
+    }
+  }
+  quickstart {
+    __typename
+    title
+    description
+    steps {
+      __typename
+      step
+      title
+      desc
+      code
+    }
+  }
+  features {
+    __typename
+    title
+    description
+    items {
+      __typename
+      icon
+      title
+      description
+      color
+    }
+  }
+  cta {
+    __typename
+    title
+    description
+    primaryCta
+    primaryCtaLink
+    secondaryCta
+    secondaryCtaLink
+  }
+}
+
+fragment SettingsParts on Settings {
+  __typename
+  site {
+    __typename
+    name
+    description
+    logo
+  }
+  environments {
+    __typename
+    uatUrl
+    prodUrl
+  }
+  footer {
+    __typename
+    copyright
+    links {
+      __typename
+      label
+      href
+    }
+  }
+}
+
+fragment NavigationParts on Navigation {
+  __typename
+  sections {
+    __typename
+    title
+    icon
+    items {
+      __typename
+      title
+      href
+    }
+  }
+}

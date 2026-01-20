@@ -1,0 +1,44 @@
+{
+  "sections": [
+    {
+      "title": "Getting Started",
+      "icon": "Home",
+      "items": [
+        { "title": "Overview", "href": "/docs/introduction/overview" },
+        { "title": "High Level Overview", "href": "/docs/introduction/high-level-overview" },
+        { "title": "Product & Integration", "href": "/docs/introduction/product-integration" }
+      ]
+    },
+    {
+      "title": "Integration Guides",
+      "icon": "BookOpen",
+      "items": [
+        { "title": "Pre-Requisites", "href": "/docs/integration/pre-requisites" },
+        { "title": "Authentication Flow", "href": "/docs/integration/authentication" },
+        { "title": "User Profile API", "href": "/docs/integration/user-profile" },
+        { "title": "Payment & Refunds", "href": "/docs/integration/payments" },
+        { "title": "JS Bridge Events", "href": "/docs/integration/events" },
+        { "title": "Webhooks", "href": "/docs/integration/webhooks" },
+        { "title": "API Reference", "href": "/docs/integration/api-reference" },
+        { "title": "Edge Cases", "href": "/docs/integration/edge-cases" }
+      ]
+    },
+    {
+      "title": "Sample Code",
+      "icon": "Code",
+      "items": [
+        { "title": "Flutter", "href": "/docs/samples/flutter" },
+        { "title": "React Native", "href": "/docs/samples/react-native" },
+        { "title": "Android / Swift", "href": "/docs/samples/android-swift" }
+      ]
+    },
+    {
+      "title": "Support",
+      "icon": "HelpCircle",
+      "items": [
+        { "title": "FAQs", "href": "/docs/support/faqs" },
+        { "title": "Refund Scenarios", "href": "/docs/support/refunds" }
+      ]
+    }
+  ]
+}

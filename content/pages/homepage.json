@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "badge": "Developer Documentation",
+    "title": "Build travel experiences",
+    "titleHighlight": "without the complexity",
+    "description": "OnArrival provides the APIs and components to embed flight booking into your app. Ship faster with pre-built UI, unified payments, and real-time webhooks.",
+    "primaryCta": "Get Started",
+    "primaryCtaLink": "/docs/introduction/overview",
+    "secondaryCta": "API Reference",
+    "secondaryCtaLink": "/docs/integration/api-reference"
+  },
+  "codePreview": {
+    "title": "Simple, powerful APIs",
+    "description": "Integrate with a few lines of code. Our JS Bridge handles the complexity of native-PWA communication while you focus on your product.",
+    "code": "// Initialize OnArrival session\nconst session = await fetch('/api/onarrival/session', {\n  method: 'POST',\n  headers: {\n    'Authorization': `Bearer ${jwt}`,\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    userId: user.id,\n    context: { source: 'mobile-app' }\n  })\n});\n\n// Handle booking events via JS Bridge\nwindow.OnArrival.on('booking:confirmed', (event) => {\n  console.log('PNR:', event.data.pnr);\n  console.log('Status:', event.data.status);\n});",
+    "features": [
+      { "label": "JWT Authentication", "desc": "Secure session management" },
+      { "label": "JS Bridge Events", "desc": "Native app integration" },
+      { "label": "S2S Webhooks", "desc": "Real-time notifications" }
+    ]
+  },
+  "quickstart": {
+    "title": "Quick start guide",
+    "description": "Get from zero to production in three steps. Our modular architecture lets you integrate incrementally.",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Get API credentials",
+        "desc": "Request UAT access and receive your JWT signing keys and S2S API credentials.",
+        "code": "x-api-key: sk_uat_xxxxx"
+      },
+      {
+        "step": "02",
+        "title": "Implement JS Bridge",
+        "desc": "Add the OnArrival bridge to handle native events between your app and our PWA.",
+        "code": "window.OnArrival.init({ env: \"uat\" })"
+      },
+      {
+        "step": "03",
+        "title": "Handle webhooks",
+        "desc": "Set up server endpoints to receive booking lifecycle events and payment updates.",
+        "code": "POST /webhooks/onarrival"
+      }
+    ]
+  },
+  "features": {
+    "title": "Built for developers",
+    "description": "Everything you need to ship travel features without building an OTA from scratch.",
+    "items": [
+      {
+        "icon": "Zap",
+        "title": "Launch in 30 days",
+        "description": "Pre-built UI components and streamlined integration reduce time-to-market from months to weeks.",
+        "color": "emerald"
+      },
+      {
+        "icon": "Shield",
+        "title": "Secure by default",
+        "description": "JWT-based authentication, encrypted S2S communication, and PCI-compliant payment handling.",
+        "color": "blue"
+      },
+      {
+        "icon": "CreditCard",
+        "title": "Unified payments",
+        "description": "Trigger native payment SDKs, handle refunds, and track transaction states via webhooks.",
+        "color": "violet"
+      },
+      {
+        "icon": "Webhook",
+        "title": "Real-time events",
+        "description": "Comprehensive webhook coverage for booking lifecycle, payment status, and inventory updates.",
+        "color": "amber"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to integrate?",
+    "description": "Start with our UAT environment and go live in weeks, not months. Our team is here to support your integration every step of the way.",
+    "primaryCta": "View Pre-requisites",
+    "primaryCtaLink": "/docs/integration/pre-requisites",
+    "secondaryCta": "FAQs",
+    "secondaryCtaLink": "/docs/support/faqs"
+  }
+}
