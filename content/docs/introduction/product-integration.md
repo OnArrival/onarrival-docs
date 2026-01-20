@@ -1,46 +1,53 @@
 ---
-title: "Product & Integration Overview"
+title: "Product & Integration"
 description: "How OnArrival integrations work, responsibilities split, and booking lifecycle"
 category: "introduction"
 order: 3
 ---
 
-# Product & Integration Overview
+# Product & Integration
 
-## Product Overview
+## What is OnArrival?
 
 OnArrival is a modular travel platform that enables consumer businesses to launch travel experiences inside their existing app — without building a full OTA stack or integrating multiple suppliers.
 
+{% callout type="tip" title="Key Value Proposition" %}
+Go live in **weeks instead of months** while retaining full control over brand, user experience, payments, and customer ownership.
+{% /callout %}
+
 Instead of providing only APIs, OnArrival offers a **Micro-App powered travel experience** that ships with:
 
-- Fully-managed search & booking workflows
-- Multi-supplier inventory aggregation
-- Fare rules, ancillaries & pricing integrity
-- S2S payments, refunds & lifecycle events
-- Loyalty, rewards & partner-owned value programs
-
-This allows partners to go live in **weeks instead of months**, while retaining full control over brand, user experience, payments and customer ownership.
+| Capability | Description |
+|------------|-------------|
+| **Booking Workflows** | Fully-managed search, selection & checkout |
+| **Multi-Supplier Inventory** | Aggregated flights from multiple sources |
+| **Pricing Integrity** | Fare rules, ancillaries & transparent pricing |
+| **S2S Payments** | Server-to-server payment init, refunds & status |
+| **Lifecycle Events** | Webhooks for all booking state changes |
+| **Loyalty Support** | Partner-owned rewards & value programs |
 
 ---
 
-## Integration Model — At a Glance
+## Integration Architecture
 
 The integration runs across two coordinated tracks:
 
-### Frontend Track (User Experience)
+### Frontend Track (Native App)
 
-Handled via Micro-App + JS Bridge:
+Handled via **Micro-App + JS Bridge**:
 
 - Search, availability, fares & ancillaries
 - Review & booking confirmation flow
 - Native navigation & event callbacks
 - Cross-screen communication with Native app
 
-Experience feels **fully native & on-brand**.
+{% callout type="info" title="Brand Experience" %}
+The experience feels **fully native & on-brand** — users never leave your app.
+{% /callout %}
 
-### Backend Track (S2S + Operations)
+### Backend Track (Server-to-Server)
 
-Handled via secure server-to-server contracts:
+Handled via **secure S2S contracts**:
 
 - User profile fetch & eligibility context
 - Payment init, status & refunds
@@ -48,39 +55,83 @@ Handled via secure server-to-server contracts:
 - Rewards earn / burn processing
 - Reconciliation & audit trails
 
-This ensures no dependency on frontend sessions, reliable retries & recoverability, and traceable booking & payment workflows.
+{% callout type="tip" title="Reliability" %}
+S2S architecture ensures no dependency on frontend sessions, reliable retries & recoverability, and traceable booking & payment workflows.
+{% /callout %}
 
 ---
 
-## Responsibilities Split
+## Responsibilities Matrix
 
-### Partner Owns
+### What You Own
 
-- User identity & authentication (JWT)
-- User profile + segmentation + loyalty logic
-- Payment gateway execution
-- Refund approval workflows
-- User messaging & communication
-- Order retrieval for MyTrips / History
+| Area | Your Responsibility |
+|------|---------------------|
+| **Identity** | User authentication & JWT issuance |
+| **Profile** | User data, segmentation & loyalty logic |
+| **Payments** | Payment gateway execution via your SDK |
+| **Refunds** | Approval workflows for refund requests |
+| **Communication** | User messaging, emails & notifications |
+| **Order History** | MyTrips / History screens in your app |
 
-### OnArrival Owns
+### What OnArrival Owns
 
-- Inventory aggregation & supplier routing
-- Search, pricing, fare rules & availability
-- Booking creation & lifecycle
-- Ancillaries, SSR, baggage, seat logic
-- Ops workflows & escalation handling
-- Pricing integrity & reconciliation
+| Area | OnArrival Responsibility |
+|------|--------------------------|
+| **Inventory** | Supplier aggregation & routing |
+| **Search** | Pricing, fare rules & availability |
+| **Booking** | Creation, lifecycle & state management |
+| **Ancillaries** | Meals, baggage, seats & SSR handling |
+| **Operations** | Support workflows & escalation |
+| **Reconciliation** | Pricing integrity & settlement |
 
 ---
 
-## Why This Integration Model Works
+## Why This Model Works
 
-| Benefit | Impact |
-| --- | --- |
-| 30-day go-live instead of multi-month build | Faster monetisation |
-| No multi-supplier integration burden | Lower engineering load |
-| Enterprise-grade UX with full brand control | Feels native to partner app |
-| Access to deep supply & ancillaries | Competitive pricing & coverage |
-| Optional BYOS (Bring Your Own Supply) | Flexible sourcing strategy |
-| Lower capex vs OTA-scale rebuild | Better ROI & faster iteration |
+| Benefit | Business Impact |
+|---------|-----------------|
+| **30-day go-live** | Faster time to market vs multi-month builds |
+| **No supplier integration** | Lower engineering overhead |
+| **Enterprise UX** | Full brand control with polished experience |
+| **Deep supply access** | Competitive pricing & coverage |
+| **BYOS option** | Bring Your Own Supply if needed |
+| **Lower capex** | Better ROI vs OTA-scale rebuild |
+
+---
+
+## Booking Lifecycle
+
+```
+User Journey                    Backend Events
+───────────────────────────────────────────────────
+1. Search & Select
+   └─ User browses flights
+
+2. Review & Confirm
+   └─ Fare lock created         → BOOKING_INITIATED
+
+3. Payment
+   └─ Native SDK triggered
+   └─ Payment completed         → PAYMENT_COMPLETED
+
+4. Booking Confirmed
+   └─ PNR generated             → BOOKING_CONFIRMED
+   └─ E-ticket delivered
+
+5. Post-Booking
+   └─ Cancellation (if any)     → BOOKING_CANCELLED
+   └─ Refund processed          → REFUND_PROCESSED
+```
+
+---
+
+## Next Steps
+
+Ready to integrate? Follow this sequence:
+
+1. **[Pre-Requisites](/docs/integration/pre-requisites)** — Get UAT credentials and review checklist
+2. **[Authentication](/docs/integration/authentication)** — Implement JWT flow and S2S auth
+3. **[JS Bridge Events](/docs/integration/events)** — Set up native event handlers
+4. **[Payments](/docs/integration/payments)** — Integrate payment initialization
+5. **[Webhooks](/docs/integration/webhooks)** — Configure webhook endpoints
