@@ -1,7 +1,7 @@
 ---
 title: "User Profile API"
 description: "User profile configuration, campaigns, rewards earn/burn, and convenience fees"
-category: "integration"
+category: "integration-guide"
 order: 3
 ---
 

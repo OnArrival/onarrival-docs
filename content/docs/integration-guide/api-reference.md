@@ -1,7 +1,7 @@
 ---
 title: "API Reference"
 description: "Complete API documentation with request/response examples"
-category: "integration"
+category: "integration-guide"
 order: 7
 ---
 

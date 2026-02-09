@@ -1,7 +1,7 @@
 ---
 title: "Edge Cases"
 description: "Handling payment failures, session timeouts, and error scenarios"
-category: "integration"
+category: "support"
 order: 6
 ---
 

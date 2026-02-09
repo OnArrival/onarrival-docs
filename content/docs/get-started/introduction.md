@@ -1,7 +1,7 @@
 ---
 title: "Overview"
 description: "Introduction to OnArrival flight booking integration"
-category: "introduction"
+category: "get-started"
 order: 1
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Product & Integration"
 description: "How OnArrival integrations work, responsibilities split, and booking lifecycle"
-category: "introduction"
+category: "get-started"
 order: 3
 ---
 

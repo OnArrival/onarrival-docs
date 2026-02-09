@@ -1,7 +1,7 @@
 ---
 title: "Authentication"
 description: "JWT tokens, S2S API keys, and session management"
-category: "integration"
+category: "integration-guide"
 order: 2
 ---
 

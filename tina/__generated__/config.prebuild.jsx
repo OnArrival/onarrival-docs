@@ -56,9 +56,10 @@ var config_default = defineConfig({
             name: "category",
             label: "Category",
             options: [
-              { label: "Introduction", value: "introduction" },
-              { label: "Integration", value: "integration" },
-              { label: "Samples", value: "samples" },
+              { label: "Get Started", value: "get-started" },
+              { label: "Integration Guide", value: "integration-guide" },
+              { label: "Code Samples", value: "code-samples" },
+              { label: "Events & Webhooks", value: "events-webhooks" },
               { label: "Support", value: "support" }
             ]
           },

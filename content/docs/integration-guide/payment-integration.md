@@ -1,7 +1,7 @@
 ---
 title: "Payments & Refunds"
 description: "Payment initialization, status tracking, and refund processing"
-category: "integration"
+category: "integration-guide"
 order: 4
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "JS Bridge Events"
 description: "Client-side communication between your native app and OnArrival PWA"
-category: "integration"
+category: "events-webhooks"
 order: 5
 ---
 
