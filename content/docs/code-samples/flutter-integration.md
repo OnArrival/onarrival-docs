@@ -1,7 +1,7 @@
 ---
 title: "Flutter"
 description: "Flutter WebView integration with JavaScript bridge"
-category: "samples"
+category: "code-samples"
 order: 1
 ---
 

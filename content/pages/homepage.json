@@ -5,9 +5,9 @@
     "titleHighlight": "without the complexity",
     "description": "OnArrival provides the APIs and components to embed flight booking into your app. Ship faster with pre-built UI, unified payments, and real-time webhooks.",
     "primaryCta": "Get Started",
-    "primaryCtaLink": "/docs/introduction/overview",
+    "primaryCtaLink": "/docs/get-started/introduction",
     "secondaryCta": "API Reference",
-    "secondaryCtaLink": "/docs/integration/api-reference"
+    "secondaryCtaLink": "/docs/integration-guide/api-reference"
   },
   "codePreview": {
     "title": "Simple, powerful APIs",
@@ -77,7 +77,7 @@
     "title": "Ready to integrate?",
     "description": "Start with our UAT environment and go live in weeks, not months. Our team is here to support your integration every step of the way.",
     "primaryCta": "View Pre-requisites",
-    "primaryCtaLink": "/docs/integration/pre-requisites",
+    "primaryCtaLink": "/docs/integration-guide/pre-requisites",
     "secondaryCta": "FAQs",
     "secondaryCtaLink": "/docs/support/faqs"
   }

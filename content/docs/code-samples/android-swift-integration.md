@@ -1,7 +1,7 @@
 ---
 title: "Android / Swift"
 description: "Native Android and iOS WebView integration"
-category: "samples"
+category: "code-samples"
 order: 3
 ---
 

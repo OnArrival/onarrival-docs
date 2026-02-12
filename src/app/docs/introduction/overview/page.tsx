@@ -289,10 +289,10 @@ export default function OverviewPage() {
 
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { href: '/docs/introduction/high-level-overview', title: 'High Level Overview', desc: 'Interactive architecture diagram', icon: Globe },
-            { href: '/docs/integration/pre-requisites', title: 'Pre-requisites', desc: 'Credentials & setup checklist', icon: Shield },
-            { href: '/docs/integration/authentication', title: 'Authentication', desc: 'JWT & session implementation', icon: Code2 },
-            { href: '/docs/integration/payments', title: 'Payments', desc: 'Payment flow & refunds', icon: CreditCard },
+            { href: '/docs/get-started/high-level-architecture', title: 'High Level Overview', desc: 'Interactive architecture diagram', icon: Globe },
+            { href: '/docs/integration-guide/pre-requisites', title: 'Pre-requisites', desc: 'Credentials & setup checklist', icon: Shield },
+            { href: '/docs/integration-guide/authentication', title: 'Authentication', desc: 'JWT & session implementation', icon: Code2 },
+            { href: '/docs/integration-guide/payment-integration', title: 'Payments', desc: 'Payment flow & refunds', icon: CreditCard },
           ].map((link) => (
             <Link
               key={link.href}

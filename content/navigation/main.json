@@ -4,40 +4,48 @@
       "title": "Getting Started",
       "icon": "Home",
       "items": [
-        { "title": "Overview", "href": "/docs/introduction/overview" },
-        { "title": "High Level Overview", "href": "/docs/introduction/high-level-overview" },
-        { "title": "Product & Integration", "href": "/docs/introduction/product-integration" }
+        { "title": "Introduction", "href": "/docs/get-started/introduction" },
+        { "title": "High Level Architecture", "href": "/docs/get-started/high-level-architecture" },
+        { "title": "Integration Overview", "href": "/docs/get-started/integration-overview" }
       ]
     },
     {
-      "title": "Integration Guides",
+      "title": "Integration Guide",
       "icon": "BookOpen",
       "items": [
-        { "title": "Pre-Requisites", "href": "/docs/integration/pre-requisites" },
-        { "title": "Authentication Flow", "href": "/docs/integration/authentication" },
-        { "title": "User Profile API", "href": "/docs/integration/user-profile" },
-        { "title": "Payment & Refunds", "href": "/docs/integration/payments" },
-        { "title": "JS Bridge Events", "href": "/docs/integration/events" },
-        { "title": "Webhooks", "href": "/docs/integration/webhooks" },
-        { "title": "API Reference", "href": "/docs/integration/api-reference" },
-        { "title": "Edge Cases", "href": "/docs/integration/edge-cases" }
+        { "title": "Pre-Requisites", "href": "/docs/integration-guide/Pre-requisites" },
+        { "title": "Authentication", "href": "/docs/integration-guide/authentication-flow" },
+        { "title": "User Profile API", "href": "docs/integration-guide/user-profile-api" },
+        { "title": "Payment Integration", "href": "docs/integration-guide/payment-integration" },
+        { "title": "Auth & Payment Edge Cases", "href": "/docs/integration-guide/payment--authentication-edge-cases" },
+        { "title": "API Reference", "href": "/docs/integration-guide/api-reference" },
+        { "title": "AI Travel Assistant", "href": "/docs/integration-guide/sendbird-integration-for-support" }
       ]
     },
     {
-      "title": "Sample Code",
+      "title": "Events & Webhooks",
+      "icon": "Webhook",
+      "items": [
+        { "title": "Event Types", "href": "/docs/events-webhooks/event-types" },
+        { "title": "JS Bridge Events", "href": "/docs/events-webhooks/js-bridge-events" },
+        { "title": "Webhook Events", "href": "/docs/events-webhooks/webhook-events" },
+        { "title": "Webhook Implementation", "href": "/docs/events-webhooks/webhook-implementation" }
+      ]
+    },
+    {
+      "title": "Code Samples",
       "icon": "Code",
       "items": [
-        { "title": "Flutter", "href": "/docs/samples/flutter" },
-        { "title": "React Native", "href": "/docs/samples/react-native" },
-        { "title": "Android / Swift", "href": "/docs/samples/android-swift" }
+        { "title": "Flutter Integration", "href": "/docs/code-samples/flutter-integration-integration" },
+        { "title": "React Native Integration", "href": "/docs/code-samples/react-native-integration-integration" },
+        { "title": "Android / Swift Integration", "href": "/docs/code-samples/android-swift-integration-integration" }
       ]
     },
     {
       "title": "Support",
       "icon": "HelpCircle",
       "items": [
-        { "title": "FAQs", "href": "/docs/support/faqs" },
-        { "title": "Refund Scenarios", "href": "/docs/support/refunds" }
+        { "title": "Troubleshooting", "href": "/docs/support/troubleshooting" }
       ]
     }
   ]

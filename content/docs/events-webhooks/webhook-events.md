@@ -1,7 +1,7 @@
 ---
 title: "Webhooks"
 description: "Server-to-server notifications for booking lifecycle events"
-category: "integration"
+category: "events-webhooks"
 order: 6
 ---
 

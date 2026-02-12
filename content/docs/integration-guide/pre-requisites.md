@@ -1,7 +1,7 @@
 ---
 title: "Pre-Requisites"
 description: "Technical requirements and setup checklist for OnArrival integration"
-category: "integration"
+category: "integration-guide"
 order: 1
 ---
 

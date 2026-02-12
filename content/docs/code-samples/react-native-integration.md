@@ -1,7 +1,7 @@
 ---
 title: "React Native"
 description: "React Native WebView integration with JavaScript bridge"
-category: "samples"
+category: "code-samples"
 order: 2
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "High Level Overview"
 description: "Complete integration architecture and user journey for OnArrival flight booking"
-category: "introduction"
+category: "get-started"
 order: 2
 ---
 

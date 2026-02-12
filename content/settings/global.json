@@ -11,8 +11,8 @@
   "footer": {
     "copyright": "OnArrival",
     "links": [
-      { "label": "Docs", "href": "/docs/introduction/overview" },
-      { "label": "API", "href": "/docs/integration/api-reference" },
+      { "label": "Docs", "href": "/docs/get-started/introduction" },
+      { "label": "API", "href": "/docs/integration-guide/api-reference" },
       { "label": "Support", "href": "/docs/support/faqs" }
     ]
   }
