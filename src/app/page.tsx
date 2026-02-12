@@ -86,9 +86,9 @@ const features = [
 ];
 
 const sdkCards = [
-  { icon: Smartphone, title: 'Flutter', href: '/docs/samples/flutter', color: 'cyan' },
-  { icon: Smartphone, title: 'React Native', href: '/docs/samples/react-native', color: 'blue' },
-  { icon: Code2, title: 'Android/Swift', href: '/docs/samples/android-swift', color: 'emerald' },
+  { icon: Smartphone, title: 'Flutter', href: '/docs/code-samples/flutter-integration', color: 'cyan' },
+  { icon: Smartphone, title: 'React Native', href: '/docs/code-samples/react-native-integration', color: 'blue' },
+  { icon: Code2, title: 'Android/Swift', href: '/docs/code-samples/android-swift-integration', color: 'emerald' },
 ];
 
 function CopyButton({ text }: { text: string }) {
@@ -131,13 +131,13 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-4">
               <Link
-                href="/docs/introduction/overview"
+                href="/docs/get-started/introduction"
                 className="text-sm text-gray-400 hover:text-gray-100 transition-colors"
               >
                 Documentation
               </Link>
               <Link
-                href="/docs/integration/api-reference"
+                href="/docs/integration-guide/api-reference"
                 className="text-sm text-gray-400 hover:text-gray-100 transition-colors"
               >
                 API Reference
@@ -191,14 +191,14 @@ export default function HomePage() {
 
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/docs/introduction/overview"
+                href="/docs/get-started/introduction"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-gray-900 font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all hover:-translate-y-0.5"
               >
                 Get Started
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/docs/integration/api-reference"
+                href="/docs/integration-guide/api-reference"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-100 font-medium transition-colors"
               >
                 API Reference
@@ -389,7 +389,7 @@ export default function HomePage() {
                 while your backend receives webhooks for booking lifecycle.
               </p>
               <Link
-                href="/docs/introduction/high-level-overview"
+                href="/docs/get-started/high-level-architecture"
                 className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
               >
                 View integration architecture
@@ -449,7 +449,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
-                  href="/docs/integration/pre-requisites"
+                  href="/docs/integration-guide/pre-requisites"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-gray-900 font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
                 >
                   View Pre-requisites
@@ -478,10 +478,10 @@ export default function HomePage() {
               <span className="text-gray-400">OnArrival Documentation</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-500">
-              <Link href="/docs/introduction/overview" className="hover:text-gray-300 transition-colors">
+              <Link href="/docs/get-started/introduction" className="hover:text-gray-300 transition-colors">
                 Docs
               </Link>
-              <Link href="/docs/integration/api-reference" className="hover:text-gray-300 transition-colors">
+              <Link href="/docs/integration-guide/api-reference" className="hover:text-gray-300 transition-colors">
                 API
               </Link>
               <Link href="/docs/support/faqs" className="hover:text-gray-300 transition-colors">

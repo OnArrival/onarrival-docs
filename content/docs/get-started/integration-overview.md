@@ -130,8 +130,8 @@ User Journey                    Backend Events
 
 Ready to integrate? Follow this sequence:
 
-1. **[Pre-Requisites](/docs/integration/pre-requisites)** — Get UAT credentials and review checklist
-2. **[Authentication](/docs/integration/authentication)** — Implement JWT flow and S2S auth
-3. **[JS Bridge Events](/docs/integration/events)** — Set up native event handlers
-4. **[Payments](/docs/integration/payments)** — Integrate payment initialization
-5. **[Webhooks](/docs/integration/webhooks)** — Configure webhook endpoints
+**[Pre-Requisites](/docs/integration-guide/pre-requisites)** — Get UAT credentials and review checklist
+2. **[Authentication](/docs/integration-guide/authentication)** — Implement JWT flow and S2S auth
+3. **[JS Bridge Events](/docs/events-webhooks/js-bridge-events)** — Set up native event handlers
+4. **[Payments](/docs/integration-guide/payment-integration)** — Integrate payment initialization
+5. **[Webhooks](/docs/events-webhooks/webhook-events)** — Configure webhook endpoints

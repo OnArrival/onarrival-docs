@@ -91,14 +91,13 @@ OnArrival uses two authentication methods:
 - **JWT tokens** — For user sessions (issued by your auth system)
 - **S2S API keys** — For backend-to-backend calls (provided by OnArrival)
 
-See [Authentication](/docs/integration/authentication) for implementation details.
-
+See [Authentication](/docs/integration-guide/authentication) for implementation details.
 ---
 
 ## Next Steps
 
-1. Review [Pre-requisites](/docs/integration/pre-requisites) checklist
-2. Implement [Authentication](/docs/integration/authentication) flow
-3. Set up [JS Bridge Events](/docs/integration/events) handlers
-4. Implement [Payment APIs](/docs/integration/payments)
-5. Configure [Webhooks](/docs/integration/webhooks)
+1. Review [Pre-requisites](/docs/integration-guide/pre-requisites) checklist
+2. Implement [Authentication](/docs/integration-guide/authentication) flow
+3. Set up [JS Bridge Events](/docs/events-webhooks/js-bridge-events) handlers
+4. Implement [Payment APIs](/docs/integration-guide/payment-integration)
+5. Configure [Webhooks](/docs/events-webhooks/webhook-events)

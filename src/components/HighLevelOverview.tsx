@@ -916,7 +916,7 @@ function QuickReferenceCards() {
             </div>
           ))}
         </div>
-        <a href="/docs/integration/events" className="flex items-center gap-1 mt-4 text-sm text-blue-400 hover:text-blue-300">
+        <a href="/docs/events-webhooks/js-bridge-events" className="flex items-center gap-1 mt-4 text-sm text-blue-400 hover:text-blue-300">
           View full documentation <ExternalLink className="w-3 h-3" />
         </a>
       </div>
@@ -940,7 +940,7 @@ function QuickReferenceCards() {
             </div>
           ))}
         </div>
-        <a href="/docs/integration/authentication" className="flex items-center gap-1 mt-4 text-sm text-blue-400 hover:text-blue-300">
+        <a href="/docs/integration-guide/authentication" className="flex items-center gap-1 mt-4 text-sm text-blue-400 hover:text-blue-300">
           View authentication docs <ExternalLink className="w-3 h-3" />
         </a>
       </div>
@@ -959,7 +959,7 @@ function QuickReferenceCards() {
             </div>
           ))}
         </div>
-        <a href="/docs/integration/webhooks" className="flex items-center gap-1 mt-4 text-sm text-blue-400 hover:text-blue-300">
+        <a href="/docs/events-webhooks/webhook-events" className="flex items-center gap-1 mt-4 text-sm text-blue-400 hover:text-blue-300">
           View webhook docs <ExternalLink className="w-3 h-3" />
         </a>
       </div>
@@ -1288,10 +1288,10 @@ onTokenRefreshed({ jwt: "new_token..." });`} />
       {/* Next Steps */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {[
-          { title: 'Pre-Requisites', href: '/docs/integration/pre-requisites', icon: CheckCircle2, color: 'emerald' },
-          { title: 'Authentication', href: '/docs/integration/authentication', icon: Shield, color: 'blue' },
-          { title: 'Payments', href: '/docs/integration/payments', icon: CreditCard, color: 'violet' },
-          { title: 'Webhooks', href: '/docs/integration/webhooks', icon: Webhook, color: 'pink' },
+          { title: 'Pre-Requisites', href: '/docs/integration-guide/pre-requisites', icon: CheckCircle2, color: 'emerald' },
+          { title: 'Authentication', href: '/docs/integration-guide/authentication', icon: Shield, color: 'blue' },
+          { title: 'Payments', href: '/docs/integration-guide/payment-integration', icon: CreditCard, color: 'violet' },
+          { title: 'Webhooks', href: '/docs/events-webhooks/webhook-events', icon: Webhook, color: 'pink' },
         ].map((link) => (
           <a
             key={link.href}
